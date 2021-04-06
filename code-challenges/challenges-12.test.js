@@ -10,8 +10,8 @@ E.g. [4,2,7,5,9,2] -> 9
 ------------------------------------------------------------------------------------------------ */
 const maxInArray = (arr) => {
   var max = arr.reduce(function(a, b) {
-    return Math.max(a, b);
-});
+  });
+  return Math.max(a, b);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -31,8 +31,8 @@ return: 23
 const findMax = (matrix) => {
   for (i=0; i<=matrix.length-1;i++){
   var max = matrix[i].reduce(function(a, b) {
-    return Math.max(a, b);
-});
+  });
+  return Math.max(a, b);
 }
 };
 
@@ -53,8 +53,8 @@ return: 35
 const totalSum = (matrix) => {
   for (i=0; i<=matrix.length-1;i++){
     var sum = matrix[i].reduce((total, num)=> {
-      return total + num;
   });
+  return total + num;
 }
 };
 
