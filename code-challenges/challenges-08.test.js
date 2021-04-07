@@ -1,5 +1,7 @@
 'use strict';
 
+const { resourceLimits } = require("worker_threads");
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 
@@ -22,7 +24,13 @@ For example, typeNum([1, 'bob' ,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
 
 const typeNum = (arr) => {
-  return ( arr.filter( (element) => { (typeof element == 'number') ? true: false } ));
+  const newArr=[];
+   arr.filter( (element) => {
+   if (typeof element == 'number') {
+    newArr.push(element);
+   }
+   })
+   return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -35,7 +43,13 @@ For example, containsAnd(['panda', 'ran', 'and']) returns ['panda', 'and'].
 ------------------------------------------------------------------------------------------------ */
 
 const containsAnd = (arr) => {
-  return ( arr.filter( (element)=>{ (element.includes('and'))}) )
+  const newArr=[];
+   arr.filter( (element) => {
+   if (element.includes('and')) {
+    newArr.push(element);
+   }
+   })
+   return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -48,7 +62,13 @@ For example, oddValues([1,2,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
 
 const oddValues = (arr) => {
-  return ( arr.filter( (element)=>{ (element % 2 != 0 ? true : false)}) )
+  const newArr=[];
+  arr.filter( (element)=>{ 
+  if (element % 2 != 0 ){
+    newArr.push(element);
+   }
+  })
+   return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -78,11 +98,15 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 ------------------------------------------------------------------------------------------------ */
 
 const notInFirstArray = (forbiddenValues, arr) => {
-  const filterArray = (arr, forbiddenValues) => {
-    const filtered = arr.filter(el => {
-       return arr.indexOf(el) === -1;
-    });
-    return filtered;
+  // let result=[];
+  // forbiddenValues.filter( (element) => {
+  // for (let i=0; i<arr.length; i++){
+  //   if (element === arr[i]){ result.push(element)}
+  // }
+  // })
+  // return result; 
+  const array3 = forbiddenValues.filter(function(obj) { return arr.indexOf(obj) == -1; });
+  return array3;
 };
 
 /* ------------------------------------------------------------------------------------------------
